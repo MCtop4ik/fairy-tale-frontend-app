@@ -1,0 +1,295 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 3em;
+}
+
+.header p {
+  font-size: 1.2em;
+}
+
+.header button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #4CAF50;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header button:hover {
+  background-color: #45a049;
+  color: white;
+}
+
+.features, .testimonials, .contact, .download, .random-tale {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.features h2, .testimonials h2, .contact h2, .download h2, .random-tale h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.feature-list > div {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.feature h3, p {
+  color: black;
+}
+
+.feature-list, .testimonial-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature, .testimonial {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.random-tale-card  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.random-tale-card img {
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.random-tale-card h2 {
+  font-family: 'Georgia', serif;
+  color: #333;
+  font-size: 24px;
+  margin: 15px 0;
+}
+
+.random-tale-card  a {
+  font-family: 'Arial', sans-serif;
+  color: #007BFF;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: 2px solid #007BFF;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.random-tale a:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+ 
+.gradient-text {
+  background: linear-gradient(135deg, #8a2be2, #2d56eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.collection {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.collection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.collection-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.collection-image {
+  width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  border-radius: 5%;
+  object-fit: cover;
+}
+
+.collection-text {
+  flex-grow: 1;
+  text-align: end;
+  color: black;
+}
+
+.collection h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.collection-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collection-button button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.collection-button button ion-icon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.collection-button button:hover {
+  background-color: #0056b3;
+}
+
+.download .download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.download .download-buttons button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.download .download-buttons button i {
+  margin-right: 10px;
+}
+
+.download .download-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact form input, .contact form textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact form button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.contact form button:hover {
+  background-color: #45a049;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-title {
+    display: none;
+  }
+
+  .random-tale-card  {
+    max-width: 100%;
+  }
+
+  .collection-image {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .collection-image {
+    display: none;
+  }
+
+  .collection-text {
+    text-align: center;
+  }
+
+  .collection-button {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .random-tale-card  {
+    max-width: 100%;
+  }
+}

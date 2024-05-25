@@ -1,0 +1,127 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToTales()">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Перейти на Сказки</ion-label>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="header-title">
+      Сказки На Английском Языке для детей
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="landing-page">
+    <header class="header">
+      <h1>Сказки На Английском Языке для детей!</h1>
+      <p>Все авторство принадлежит школьникам</p>
+      <!-- <button (click)="scrollToSection('features')">Узнать больше</button> -->
+    </header>
+
+    <section class="random-tale" *ngIf="randomTale">
+      <div class="feature-list">
+        <div>
+          <ion-button fill="clear" (click)="reloadRandomTale()">
+            <h2 class="gradient-text">Cказка</h2>
+          </ion-button>
+          <div class="random-tale-card">
+            <img [src]="randomTale.image" alt="Random Tale Image">
+            <h2>{{ randomTale.title }}</h2>
+            <a [routerLink]="randomTale.link">Перейти к сказке</a>
+          </div>
+        </div>
+        <div>
+          <ion-button fill="clear" (click)="reloadRandomWord()">
+            <h2 class="gradient-text">Cлово</h2>
+          </ion-button>
+
+          <div class="random-tale-card">
+            <h2>{{ randomWord.phrase }}</h2>
+
+            <ion-button fill="outline" color="tertiary" (click)="toggleTranslation()" *ngIf="!showTranslation"
+              class="gradient-text">
+              <h2 class="gradient-text">ЭТО</h2>
+            </ion-button>
+            <h2 *ngIf="showTranslation">{{ randomWord.translation }}</h2>
+            <a [routerLink]="randomWord.link" *ngIf="randomWord.exists && showTranslation">Перейти к сказке</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="features" class="features">
+      <h2>Особенности</h2>
+      <div class="feature-list">
+        <div class="feature">
+          <h3>Качество</h3>
+          <p>Мы обеспечиваем высокое качество наших услуг.</p>
+        </div>
+        <div class="feature">
+          <h3>Надежность</h3>
+          <p>Наши решения надежны и проверены временем.</p>
+        </div>
+        <div class="feature">
+          <h3>Поддержка</h3>
+          <p>Мы всегда готовы помочь нашим клиентам.</p>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="collection" class="collection">
+      <div class="collection-content">
+        <img src="https://i.imgur.com/zmM6z6T.jpg" alt="Collection Image" class="collection-image">
+        <div class="collection-text">
+          <h2>Наш сборник</h2>
+          <div class="collection-button">
+            <button (click)="openCollection()">
+              <ion-icon name="book-outline"></ion-icon>
+              Открыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="download" class="download">
+      <h2>Скачайте наше приложение</h2>
+      <div class="download-buttons">
+        <button>
+          <ion-icon name="logo-apple"></ion-icon> 
+          Скачать для iOS
+        </button>
+        <button>
+          <ion-icon name="logo-android"></ion-icon> 
+          Скачать для Android
+        </button>
+      </div>
+    </section> -->
+
+    <!-- <section id="testimonials" class="testimonials">
+      <h2>Отзывы</h2>
+      <div class="testimonial-list">
+        <div class="testimonial">
+          <p>"Отличный сервис и поддержка!" - Иван Иванов</p>
+        </div>
+        <div class="testimonial">
+          <p>"Очень доволен качеством услуг." - Анна Петрова</p>
+        </div>
+      </div>
+    </section>
+     -->
+    <!-- <section id="contact" class="contact">
+      <h2>Свяжитесь с нами</h2>
+      <form>
+        <input type="text" placeholder="Ваше имя" required>
+        <input type="email" placeholder="Ваш email" required>
+        <textarea placeholder="Ваше сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+      </form>
+    </section> -->
+
+    <footer class="footer">
+      <p>&copy;Arseniy Zakharov 2024 Все права защищены.</p>
+    </footer>
+  </div>
+</ion-content>

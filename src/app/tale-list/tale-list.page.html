@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-tabs color="tertiary">
+      <ion-tab-bar slot="top">
+        <ion-tab-button [routerLink]="['/', 'home']">
+          <ion-icon name="home-outline"></ion-icon>
+          Main
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/', 'tales', 'morning']">
+          <ion-icon name="book"></ion-icon>
+          Tales
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/', 'glossary']">
+          <ion-icon name="library"></ion-icon>
+          Glossary
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row *ngFor="let row of tales">
+      <ion-col *ngFor="let tale of row" size="{{tale['cards_row_size']}}" offset="{{tale['col']}}" class="ion-text-center ion-padding">
+        <ion-card>
+          <a [routerLink]="['tale', tale['id']]">
+            <img [src]="tale['image_src']" class="center fixed-size-image">
+            <ion-card-header>
+              <ion-card-title>{{tale['title']}}</ion-card-title>
+            </ion-card-header>
+          </a>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-tabs color="tertiary">
+      <ion-tab-bar slot="top">
+        <ion-tab-button [routerLink]="['/', 'tales', 'morning']">
+          <ion-icon name="book"></ion-icon>
+          Tales
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/', 'tales', 'morning']">
+          <ion-icon name="sunny"></ion-icon>
+          Tales for morning
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/', 'tales', 'night']">
+          <ion-icon name="moon"></ion-icon>
+          Tales for night
+        </ion-tab-button> -->
+        <!-- <ion-tab-button [routerLink]="['/', 'glossary']">
+          <ion-icon name="library"></ion-icon>
+          Glossary
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-grid >
+    <ion-row *ngFor="let row of tales">
+      <ion-col *ngFor="let tale of row" size="{{tale['cards_row_size']}}" offset="{{tale['col']}}">
+        <ion-card>
+          <a [routerLink]="['tale', tale['id']]">
+            <img src="{{tale['image_src']}}" class="center">
+            <ion-card-header>
+              <ion-card-title>{{tale['title']}}</ion-card-title> -->
+              <!-- <ion-card-subtitle>{{tale['author_info']['first_last']}}</ion-card-subtitle> -->
+            <!-- </ion-card-header> -->
+            <!-- <ion-card-content>
+              {{tale['description']}}
+            </ion-card-content> -->
+          <!-- </a>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->

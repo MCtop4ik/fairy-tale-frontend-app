@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-tabs color="tertiary">
+      <ion-tab-bar slot="top">
+        <ion-tab-button [routerLink]="['/', 'home']">
+          <ion-icon name="home-outline"></ion-icon>
+          Main
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/', 'tales', 'morning']">
+          <ion-icon name="book"></ion-icon>
+          Tales
+        </ion-tab-button>
+        <!-- <ion-tab-button [routerLink]="['/', 'tales', 'morning']">
+          <ion-icon name="sunny"></ion-icon>
+          Tales for morning
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/', 'tales', 'night']">
+          <ion-icon name="moon"></ion-icon>
+          Tales for night
+        </ion-tab-button> -->
+        <ion-tab-button [routerLink]="['/', 'glossary']">
+          <ion-icon name="library"></ion-icon>
+          Glossary
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let row of glossary_data">
+      <ion-grid>
+        <ion-row>
+          <!-- First Column: Phrase, Translation, and Transcription -->
+          <ion-col size="12" size-md="5" offset-md="1">
+            <ion-label>
+              <div class="phrase-container">
+                <h1 class="phrase">{{row['phrase']}} - {{row['translation']}}</h1>
+                <p class="transcription">{{row['transcription']}}</p>
+              </div>
+            </ion-label>
+          </ion-col>
+          
+          <!-- Second Column: Accordion with Examples -->
+          <ion-col size="12" size-md="6">
+            <ion-accordion-group style="width: 100%; margin-top: 15px;">
+              <ion-accordion value="second">
+                <ion-item slot="header" color="light" *ngIf="row['tale_ids']">
+                  <ion-label>Example of use from story</ion-label>
+                </ion-item>
+                <div class="ion-padding" slot="content">
+                  <div *ngIf="row['tale_ids'] % 4 == 0">
+                    <ion-button color="tertiary" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                  </div>
+                  <div *ngIf="row['tale_ids'] % 4 == 1">
+                    <ion-button color="success" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                  </div>
+                  <div *ngIf="row['tale_ids'] % 4 == 2">
+                    <ion-button color="warning" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                  </div>
+                  <div *ngIf="row['tale_ids'] % 4 == 3">
+                    <ion-button color="danger" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                  </div>
+                </div>
+              </ion-accordion>
+            </ion-accordion-group>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

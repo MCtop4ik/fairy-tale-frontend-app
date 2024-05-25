@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>admin-panel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-segment value="talesAdminPanel" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="talesAdminPanel">
+      <ion-label>Tales</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="usersAdminPanel">
+      <ion-label>Users</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="slider == 'talesAdminPanel'">
+    <h1>Tales</h1>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th id="title">Title</th>
+          <th id="description">Description</th>
+          <th id="full_text">Full text</th>
+          <th id="grammar">Grammar</th>
+          <th id="bg_picture">bg_picture</th>
+          <th id="video">video</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tale of tales_data">
+          <td header="title"><span>Title</span>{{ tale['title'] }}</td>
+          <td header="description"><span>Description</span></td>
+          <td header="full_text"><span>Date</span></td>
+          <td header="grammar"><span>Status</span></td>    
+        </tr>  
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="slider == 'usersAdminPanel'">
+    <h1>Users</h1>
+  </div>
+</ion-content>

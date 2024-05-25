@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <style>
+    /* ion-content {
+      background-image: url("{{tale['bg_img']}}");
+    } */
+  </style>
+  <ion-toolbar>
+  
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tales/morning"></ion-back-button>
+    </ion-buttons> 
+    <ion-title>{{tale['title']}}
+       <!-- by {{tale['author']['first_last']}} -->
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">  
+  <body>
+    <ion-grid>
+      <div class="card_floodfill">
+      <ion-card>
+        <ion-row>
+          <ion-col size="2" offset-md="3" size-md="6">
+            <div class="audio-player">
+              <audio id="audioPlayer" controls>
+                <source src="../../assets/audio/test.mp3">
+              </audio>
+              <div class="controls">
+                <button (click)="playPause()">
+                  <span *ngIf="!isPlaying">Play</span>
+                  <span *ngIf="isPlaying">Pause</span>
+                </button>
+                <div class="progress-bar">
+                  <div class="progress" [style.width]="progress + '%'"></div>
+                </div>
+                <div class="time">
+                  <span>{{ currentTime }}</span> / <span>{{ duration }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- <iframe style="width: 90%; margin: 15px 5%; height: 383.73px;" allowfullscreen="" data-attr="src" [src]="tale['video_src'] | safe">Video</iframe> -->
+          </ion-col>
+        </ion-row>
+        <ion-card-title>
+          <ion-row>
+            <ion-col size-lg="4">
+              <ion-segment value="text" (ionChange)="segmentChanged($event)">
+                <ion-segment-button value="text">
+                  <ion-label>Text</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="glossary">
+                  <ion-label>Glossary</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-accordion-group expand="inset" *ngIf="segment_value == 'glossary'">
+                <ion-accordion value="second">
+                  <ion-item slot="header" color="light">
+                    <ion-label>Glossary</ion-label>
+                  </ion-item>
+                  <div class="ion-padding" slot="content">
+                    <ion-list>
+                      <ion-item *ngFor="let seq of tale['grammar']">
+                        <ion-label>
+                          <div class="phrase-container">
+                            <h1 class="phrase">{{seq['phrase']}} - {{seq['translation']}}</h1>
+                            <p class="transcription">{{seq['transcription']}}</p>
+                          </div>
+                        </ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                </ion-accordion>                
+              </ion-accordion-group>
+              <ion-accordion-group expand="inset" *ngIf="segment_value == 'text'">
+                  <ion-accordion value="first">
+                    <ion-item slot="header" color="light">
+                      <ion-label>Text</ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content" [innerHtml]="tale['full_text']"></div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ion-col>
+            </ion-row> 
+        </ion-card-title>
+        <ion-card-content>
+  
+        </ion-card-content>
+      </ion-card>
+    </div>
+    </ion-grid>
+  </body>
+</ion-content>

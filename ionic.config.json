@@ -1,0 +1,7 @@
+{
+  "name": "fairy-tale",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
