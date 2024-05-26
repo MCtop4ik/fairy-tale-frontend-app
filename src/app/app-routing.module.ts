@@ -37,7 +37,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin-panel/admin-panel.module').then( m => m.AdminPanelPageModule)
   },
   {
-    path: 'change-log',
+    path: 'updates',
     loadChildren: () => import('./change-log/change-log.module').then( m => m.ChangeLogPageModule)
   },
   {

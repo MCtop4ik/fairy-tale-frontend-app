@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { GlossaryPageRoutingModule } from './glossary-routing.module';
 
 import { GlossaryPage } from './glossary.page';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { GlossaryPage } from './glossary.page';
     IonicModule,
     GlossaryPageRoutingModule
   ],
-  declarations: [GlossaryPage]
+  declarations: [GlossaryPage, PaginationComponent]
 })
 export class GlossaryPageModule {}

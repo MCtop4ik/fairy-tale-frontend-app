@@ -1,0 +1,55 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h2, p {
+    color: black;
+    margin: 0;
+}
+
+.container h1 {
+    background: linear-gradient(to bottom, red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 24px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container h3 {
+    background: linear-gradient(to bottom, rgb(3, 121, 164), rgb(11, 166, 50));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+  .container ol {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .container li {
+    margin-bottom: 15px;
+  }
+  
+  .container h2 {
+    font-size: 18px;
+    color: #444;
+  }
+  
+  .container ion-button {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

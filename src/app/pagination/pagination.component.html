@@ -1,0 +1,9 @@
+<div class="pagination">
+  <button *ngIf="currentPage > 1 + range" (click)="goToPage(1)">1</button>
+  <span *ngIf="currentPage > 1 + range">...</span>
+  <ng-container *ngFor="let page of visiblePages">
+    <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+  </ng-container>
+  <span *ngIf="pages.length - currentPage > range">...</span>
+  <button *ngIf="currentPage < pages.length - range" (click)="goToPage(pages.length)">{{ pages.length }}</button>
+</div>

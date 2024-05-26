@@ -1,30 +1,51 @@
 p {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .phrase-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .phrase {
-    font-size: 1.2em; /* Adjust font size as needed */
-    margin: 0;
-  }
-  
-  .transcription {
-    font-size: 1em; /* Adjust font size as needed */
-    margin: 0;
-    color: var(--ion-color-medium);
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-  .route-button {
-    --background: #3880ff; /* Primary color or any color you prefer */
-    --color: white;
-    --padding: 10px 20px;
-    margin-top: 10px;
-  }
+.phrase {
+  font-size: 1.2em;
+  /* Adjust font size as needed */
+  margin: 0;
+}
+
+.transcription {
+  font-size: 1em;
+  /* Adjust font size as needed */
+  margin: 0;
+  color: var(--ion-color-medium);
+}
+
+.route-button {
+  --background: #3880ff;
+  /* Primary color or any color you prefer */
+  --color: white;
+  --padding: 10px 20px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.route-button p {
+  white-space: normal;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9em;
+  color: black;
+}

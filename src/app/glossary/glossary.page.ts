@@ -14,6 +14,9 @@ export class GlossaryPage implements OnInit {
 
   tales: any = {};
   glossary_data = [];
+  page_glossary_data = [];
+  totalItems = 0;
+  itemsPerPage = 10;
 
   ngOnInit() {
     this.getGlossaryData();
@@ -22,11 +25,13 @@ export class GlossaryPage implements OnInit {
 
   getGlossaryData(){
     this.glossary_data = this.httpService.getGlossaryData();
+    this.totalItems = this.glossary_data.length;
+    this.page_glossary_data = this.glossary_data.slice(0, this.itemsPerPage);
     // this.httpService.getGlossaryData().subscribe((data): void => {this.glossary_data = data});
   }
 
   goToTale(tale_ids: string): string[]{
-    return ["..", "tales", "morning", "tale", tale_ids];
+    return ["/tales", "morning", "tale", tale_ids];
   }
 
   getTales() {
@@ -38,7 +43,11 @@ export class GlossaryPage implements OnInit {
       return this.tales[tale_id].title
     }catch{
     }
-    
+  }
+
+  onPageChange(page: number): void {
+    this.page_glossary_data = this.glossary_data.slice((page - 1) * this.itemsPerPage, page * this.itemsPerPage);
+    console.log('Page changed to:', page);
   }
 
   routeToTale(route: string[]) {

@@ -43,6 +43,10 @@ export class HomePage {
     this.router.navigate(['tales', 'morning']);
   }
 
+  goToUpdates() {
+    this.router.navigate(['updates']);
+  }
+
   getRandomTale() {
     const randomIndex = Math.floor(Math.random() * this.tales.length);
     this.randomTale = this.tales[randomIndex][0];

@@ -29,7 +29,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let row of glossary_data">
+    <ion-item *ngFor="let row of page_glossary_data">
       <ion-grid>
         <ion-row>
           <!-- First Column: Phrase, Translation, and Transcription -->
@@ -41,7 +41,7 @@
               </div>
             </ion-label>
           </ion-col>
-          
+
           <!-- Second Column: Accordion with Examples -->
           <ion-col size="12" size-md="6">
             <ion-accordion-group style="width: 100%; margin-top: 15px;">
@@ -51,16 +51,32 @@
                 </ion-item>
                 <div class="ion-padding" slot="content">
                   <div *ngIf="row['tale_ids'] % 4 == 0">
-                    <ion-button color="tertiary" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                    <ion-button color="tertiary" fill="outline" class="route-button" (click)="routeToTale(goToTale(row['tale_ids']))">
+                      <p>
+                        Story about "{{getTaleName(row['tale_ids'])}}"
+                      </p>
+                    </ion-button>
                   </div>
                   <div *ngIf="row['tale_ids'] % 4 == 1">
-                    <ion-button color="success" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                    <ion-button color="success" fill="outline" class="route-button" (click)="routeToTale(goToTale(row['tale_ids']))">
+                      <p>
+                        Story about "{{getTaleName(row['tale_ids'])}}"
+                      </p>
+                    </ion-button>
                   </div>
                   <div *ngIf="row['tale_ids'] % 4 == 2">
-                    <ion-button color="warning" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                    <ion-button color="warning" fill="outline" class="route-button" (click)="routeToTale(goToTale(row['tale_ids']))">
+                      <p>
+                        Story about "{{getTaleName(row['tale_ids'])}}"
+                      </p>
+                    </ion-button>
                   </div>
                   <div *ngIf="row['tale_ids'] % 4 == 3">
-                    <ion-button color="danger" fill="outline" (click)="routeToTale(goToTale(row['tale_ids']))">Story about "{{getTaleName(row['tale_ids'])}}"</ion-button>
+                    <ion-button color="danger" fill="outline" class="route-button" (click)="routeToTale(goToTale(row['tale_ids']))">
+                      <p>
+                        Story about "{{getTaleName(row['tale_ids'])}}"
+                      </p>
+                    </ion-button>
                   </div>
                 </div>
               </ion-accordion>
@@ -69,6 +85,10 @@
         </ion-row>
       </ion-grid>
     </ion-item>
+    <app-pagination [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" (pageChange)="onPageChange($event)">
+    </app-pagination>
   </ion-list>
+  <footer class="footer">
+    <p>&copy;Arseniy Zakharov 2024 Все права защищены.</p>
+  </footer>
 </ion-content>
-

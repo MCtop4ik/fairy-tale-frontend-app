@@ -22,18 +22,22 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row *ngFor="let row of tales">
-      <ion-col *ngFor="let tale of row" size="{{tale['cards_row_size']}}" offset="{{tale['col']}}" class="ion-text-center ion-padding">
+      <ion-col *ngFor="let tale of row" [size]="tale.cards_row_size" [offset]="tale.col" class="ion-text-center ion-padding">
         <ion-card>
-          <a [routerLink]="['tale', tale['id']]">
-            <img [src]="tale['image_src']" class="center fixed-size-image">
+          <a [routerLink]="['tale', tale.id]">
+            <img [src]="tale.image_src" class="center fixed-size-image">
             <ion-card-header>
-              <ion-card-title>{{tale['title']}}</ion-card-title>
+              <ion-card-title>{{ tale.title }}</ion-card-title>
             </ion-card-header>
           </a>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <footer class="footer">
+    <p>&copy;Arseniy Zakharov 2024 Все права защищены.</p>
+  </footer>
 </ion-content>
 
 <!-- <ion-header>
