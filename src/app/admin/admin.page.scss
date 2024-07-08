@@ -1,0 +1,118 @@
+// body {
+//     font-family: Arial, sans-serif;
+//     background-color: #f0f0f0;
+//     margin: 0;
+//     padding: 20px;
+//     overflow-y: scroll;
+// }
+
+.history {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.creator,
+.site-history,
+.levchenko {
+    margin-bottom: 20px;
+}
+
+.creator h2,
+.site-history h2,
+.other-sites h2,
+.levchenko h2 {
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+p {
+    color: #00796b;
+}
+
+.other-sites {
+    .card {
+        background-color: #e0f7fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+
+        &:nth-child(even) {
+            background-color: #ffecb3;
+        }
+
+        &:hover {
+            background-color: #80deea;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            color: #00796b;
+        }
+
+        a {
+            color: #00796b;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.levchenko a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.levchenko a:hover {
+    background-color: #0056b3;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #8a2be2, #2d56eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9em;
+}

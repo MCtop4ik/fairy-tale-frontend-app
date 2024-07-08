@@ -44,11 +44,23 @@ const routes: Routes = [
     path: 'under-construction',
     loadChildren: () => import('./under-construction/under-construction.module').then( m => m.UnderConstructionPageModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./not-found-page/not-found-page.module').then( m => m.NotFoundPagePageModule)
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, useHash: true })
   ],
   exports: [RouterModule]
 })

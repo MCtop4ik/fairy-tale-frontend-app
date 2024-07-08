@@ -47,6 +47,10 @@ export class HomePage {
     this.router.navigate(['updates']);
   }
 
+  goToAdminPage() {
+    this.router.navigate(['admin'])
+  }
+
   getRandomTale() {
     const randomIndex = Math.floor(Math.random() * this.tales.length);
     this.randomTale = this.tales[randomIndex][0];

@@ -10,7 +10,7 @@
 //     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7f3f5efb", endColorstr="#7ffc466b", GradientType=1);
 // }
 body {
-    background: radial-gradient(circle, rgba(255, 237, 194, 1) 0%, rgba(252, 207, 127, 1) 100%);
+    background: radial-gradient(circle, rgb(243, 233, 211) 0%, rgb(251, 224, 176) 100%);
 }
 
 
@@ -179,4 +179,40 @@ body {
     margin: 0;
     font-size: 0.9em;
     color: black;
+}
+
+.styled-content {
+    padding: 5px;
+    margin: 5px;
+    line-height: 1.5;
+    color: navy;
+    font-size: 20px;
+    background-color: #ddd;
+    border-radius: 15px;
+    text-indent: 30px;
+}
+
+.highlighted-word  {
+    // color: rebeccapurple;
+    color: blueviolet;
+}
+
+.title {
+    font-size: 48px;
+    color: black;
+    font-family: fantasy; 
+    text-align: center;
+    margin-bottom: -50px;
+    margin-top: 10px;
+}
+
+.left-column {
+    width: 50%;
+    float: left;
+    background-color: lightblue;
+}
+.right-column {
+    width: 50%;
+    float: left;
+    background-color: lightcoral;
 }

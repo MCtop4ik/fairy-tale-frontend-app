@@ -5,26 +5,27 @@
     } */
   </style>
   <ion-toolbar>
-  
+
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tales/morning"></ion-back-button>
-    </ion-buttons> 
-    <ion-title>{{tale['title']}}
-       <!-- by {{tale['author']['first_last']}} -->
-      </ion-title>
+    </ion-buttons>
+    <ion-title>{{ tale['title'] }}
+      <!-- by {{tale['author']['first_last']}} -->
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="background">  
+<ion-content [fullscreen]="true" class="background">
+
   <body>
     <ion-grid>
       <div class="card_floodfill">
-      <ion-card>
+        <!-- <ion-card> -->
         <ion-row>
           <ion-col offset-md="3" size-md="6">
-            <div class="audio-container-error" *ngIf="!isAudio">
+            <!-- <div class="audio-container-error" *ngIf="!isAudio">
               <h2>Audio not find</h2>
-            </div>
+            </div> -->
             <div class="audio-player-container" [class.loading]="isLoading" *ngIf="isAudio">
               <div class="loader" *ngIf="isLoading"></div>
               <div class="audio-player">
@@ -45,7 +46,10 @@
             </div>
           </ion-col>
         </ion-row>
-        <ion-card-title>
+        <!-- <ion-card-content>
+          <div class="ion-padding" style="font-size: 100px;" slot="content" [innerHtml]="tale['full_text']"></div>
+        </ion-card-content> -->
+        <!-- <ion-card-title>
           <ion-row>
             <ion-col size-lg="4">
               <ion-segment value="text" (ionChange)="segmentChanged($event)">
@@ -92,13 +96,21 @@
         </ion-card-title>
         <ion-card-content>
   
-        </ion-card-content>
-      </ion-card>
-    </div>
-    </ion-grid>
-  </body>
+        </ion-card-content> -->
+        <!-- </ion-card> -->
+        <div class="styled-content">
+          <div class="title">
+            {{ tale['title'] }}
+          </div>
+          <div class="ion-padding" slot="content" [innerHTML]="sanitizedFullText"></div>
+        </div>
 
-  <footer class="footer">
-    <p>&copy;Arseniy Zakharov 2024 Все права защищены.</p>
-  </footer>
+      </div>
+
+    </ion-grid>
+
+  </body>
 </ion-content>
+<!-- <ion-footer class="footer">
+  <p>&copy;Arseniy Zakharov 2024 Все права защищены.</p>
+</ion-footer> -->

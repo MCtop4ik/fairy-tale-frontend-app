@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Об админе</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <section class="history">
+      <h1 class="gradient-text">Войдем на веки в историю лицея</h1>
+      <div class="creator">
+        <h2>О создателе</h2>
+        <p><strong>Арсений Захаров (Зетни)</strong><br>Ученик 10-тех класса, ныне Full-Stack разработчик в IT-компании
+          Golden Middle Co.</p>
+      </div>
+      <div class="site-history">
+        <h2>История сайта</h2>
+        <p>Я начал разработку в октябре 2023 года, и уже через 3-4 дня появились первые наработки. В мае 2024 года сайт
+          был доработан. Изначально он хостился на XTunnel, а затем переместился на сайт smtl.ru. Backend был
+          разработан, но, к сожалению, его никто не смог разместить.</p>
+      </div>
+      <div class="other-sites">
+        <h2>Другие наши сайты</h2>
+
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>Сайт Левченко О. А</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a href="https://smtl.ru/leo" target="_blank">https://smtl.ru/leo</a>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>Сайт с таблицей Менделеева</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a href="https://smtl.ru/mendel" target="_blank">https://smtl.ru/mendel</a>
+          </ion-card-content>
+          <ion-card-content>
+            <span>Автор: А. Мартынов (8 класс)</span>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>Сайт с логикой шахмат (старая версия)</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <a href="https://smtl.ru/chess" target="_blank">https://smtl.ru/chess</a>
+          </ion-card-content>
+          <ion-card-content>
+            <span (click)="open_secret()">Автор: А. Захаров (8 класс)</span>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div *ngIf="secret_page">
+        <div class="creator">
+          <h2>Наши оды</h2>
+          <div class="columns">
+            <div class="column">
+              <h2>Школе Королева посвящается</h2>
+              <app-korolev-school></app-korolev-school>
+            </div>
+            <div class="column">
+              <h2>Посвящается Левченко</h2>
+              <app-levchenko-poem></app-levchenko-poem>
+            </div>
+          </div>
+        </div>
+        <div class="levchenko">
+          <h2>Левченко - Великий</h2>
+          <p><a href="https://drive.google.com/file/d/1RTb87RGdpfzM7js8TMgCQw8Ex6GA6b6E/view?usp=sharing" target="_blank">Презентация Новогодний Лео</a></p>
+        </div>
+      </div>
+      <h1 class="gradient-text">Не забывайте первых</h1>
+    </section>
+    <footer class="footer">
+      <p><a class="gradient-text">&copy;Arseniy Zakharov 2024</a> Все права защищены.</p>
+    </footer>
+</ion-content>
+
+<!-- <ion-content>
+  <div class="content-container">
+    <p>Войдем на веки в историю лицея
+    О создателе
+    Я Арсений Захаров (Зетни) из 10-тех класса. Ныне Full-Stack разработчик в IT-компании Golden Middle Co.
+    История сайта
+    Я начал разработку в октябре 2023 и за 3-4 дня появились первые наработки. В мае 2024 я доработал сайт. Вначале он хостился на XTunnel. Потом он переместился на сайт smtl.ru. Backend существовал, но его увы никто не смог разместить
+    Другие наши сайты тут 
+    Сайт Левченко О. А
+    https://smtl.ru/leo
+    Сайт с таблицей Менделеева. Автор: А. Мартынов (8 класс)
+    https://smtl.ru/mendel
+    Сайт с логикой шахмат(старая версия). Автор: А. Захаров (8 класс)
+    https://smtl.ru/chess
+    Наши произведения
+    Три оды
+    Левченко - Великий
+    Презентация Новогодний Лео
+    Удачи Вам
+    Xe + H = бобровый взрыв
+    Не забывайте первых</p>
+  </div>
+</ion-content> -->

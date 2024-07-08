@@ -1,11 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, SecurityContext, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../services/http.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tale',
   templateUrl: './tale.page.html',
   styleUrls: ['./tale.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TalePage implements OnInit {
 
@@ -23,8 +25,12 @@ export class TalePage implements OnInit {
   progress: number = 0;
   isLoading: boolean = true;
   isAudio: boolean = true;
+  sanitizedFullText: SafeHtml | null = "";
 
-  constructor(private route: ActivatedRoute, private httpService: HttpService) { }
+
+  constructor(private route: ActivatedRoute, private httpService: HttpService,
+    private sanitizer: DomSanitizer, private cdr: ChangeDetectorRef
+  ) { }
 
   ngAfterViewInit() {
     if (this.isAudio) {
@@ -36,7 +42,7 @@ export class TalePage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params=>this.id=params['id'])
+    this.route.params.subscribe(params => this.id = params['id'])
     this.getTale();
   }
 
@@ -44,17 +50,45 @@ export class TalePage implements OnInit {
   getTale() {
     console.log(this.id);
     this.tale = this.httpService.getTaleData()[this.id];
+    this.tale['full_text'] = `<div class="styled-content">${this.wrapWordsInDiv(this.tale['full_text'], this.tale['grammar'])}</div>`;
+    console.log(this.tale['full_text']);
+    this.sanitizedFullText = this.sanitizer.bypassSecurityTrustHtml(this.tale['full_text']);
+    console.log(this.tale['full_text']);
+    console.log(this.tale['grammar']);
+    
     if (this.tale['video_src'] == "no audio") {
       this.audioLink = "https://sndup.net/qjvx/"
       this.isAudio = false;
     } else {
-      this.audioLink = 'https://sndup.net/' + this.tale["video_src"] + '/d'
+      this.audioLink = 'https://sndup.net/' + this.tale["video_src"] + '/d';
       this.isAudio = true;
     }
-    
-    // this.httpService.getTaleData(this.id).subscribe((data): void => {this.tale = data});
+
+    this.cdr.detectChanges();
   }
 
+  wrapWordsInDiv(text: string, grammar: Array<{ phrase: string, transcription: string, translation: string }>): string {
+    grammar.forEach(item => {
+      const cnt = Math.random().toString(36).substring(2, 9);
+      const regex = new RegExp(`\\b${item.phrase}\\b`, 'gi');
+      text = text.replace(regex, 
+        `<span id="${cnt}" class='highlighted-word'>${item.phrase}</span>
+          <ion-popover trigger="${cnt}" side="bottom" alignment="center" triggerAction="click">
+            <ng-template [ngTemplateOutlet]="popoverTemplate">
+              <ion-card>
+                <ion-content>
+                  <ion-title class="phrase">${item.phrase}</ion-title>
+                  <ion-title class="transcription">${item.transcription}</ion-title>
+                  <ion-title class="phrase">${item.translation}</ion-title>
+                </ion-content>
+              </ion-card>
+            </ng-template>
+          </ion-popover>`
+      );
+      console.log(text);
+    });
+    return text;
+  }
   playPause() {
     const audio = this.audioPlayer.nativeElement;
     if (audio.paused) {
@@ -89,7 +123,7 @@ export class TalePage implements OnInit {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
 
-  segmentChanged(event: any){
+  segmentChanged(event: any) {
     console.log(event.detail.value);
     this.segment_value = event.detail.value;
   }
